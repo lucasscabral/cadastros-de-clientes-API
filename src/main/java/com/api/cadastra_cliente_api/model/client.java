@@ -1,6 +1,10 @@
 package com.api.cadastra_cliente_api.model;
 
+import java.sql.Date;
+
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.api.cadastra_cliente_api.dto.clientDTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,10 +21,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class client {
 
-    client(String name, String cpf, String birthDate) {
-        this.name = name;
-        this.cpf = cpf;
-        this.birthDate = birthDate;
+    public client(clientDTO client) {
+        this.name = client.name();
+        this.cpf = client.cpf();
+        this.birthDate = client.birthDate();
     }
 
     @Id
@@ -35,6 +39,6 @@ public class client {
 
     @Column(nullable = false)
     @DateTimeFormat(style = "dd/MM/yyyy")
-    private String birthDate;
+    private Date birthDate;
 
 }
