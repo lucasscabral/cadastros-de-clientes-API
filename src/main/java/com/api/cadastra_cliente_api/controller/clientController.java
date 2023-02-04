@@ -32,4 +32,16 @@ public class clientController {
         return ResponseEntity.ok(service.getAllClient(pageable));
     }
 
+    @PostMapping
+    public ResponseEntity<String> createCustomer(@RequestBody @Valid clientDTO req) {
+
+        String isValid = service.clientRegister(req);
+        if (isValid.equals("Já existe um usuário com esse cpf")) {
+            return ResponseEntity.status(401).body(isValid);
+        } else {
+            return ResponseEntity.status(201).body(isValid);
+        }
+
+    }
+
 }
