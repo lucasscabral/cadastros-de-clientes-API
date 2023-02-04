@@ -1,9 +1,5 @@
 package com.api.cadastra_cliente_api.service;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.ResolverStyle;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +18,16 @@ public class clientService {
 
     public Page<client> getAllClient(Pageable page) {
         return repository.findAll(page);
+    }
+
+    public String clientRegister(clientDTO req) {
+        List<client> getClient = repository.findByCpf(req.cpf());
+        if (!getClient.isEmpty()) {
+            return "Já existe um usuário com esse cpf";
+        } else {
+            repository.save(new client(req));
+            return "ok";
+        }
     }
 
 }
