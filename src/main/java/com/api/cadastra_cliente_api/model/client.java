@@ -21,10 +21,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class client {
 
-    public client(clientDTO client) {
-        this.name = client.name();
-        this.cpf = client.cpf();
-        this.birthDate = client.birthDate();
+    public client(String name, Date birthDate, String cpf) {
+        this.name = name;
+        this.birthDate = birthDate;
+        this.cpf = cpf;
     }
 
     @Id
