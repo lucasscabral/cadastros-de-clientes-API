@@ -42,7 +42,7 @@ public class clientService {
             return "Já existe um usuário com esse cpf";
         } else {
 
-            repository.save(new client(req.name(), req.birthDate(), cpfWithoutMask));
+            repository.save(new client(req.name(), cpfWithoutMask, req.birthDate()));
             return "ok";
         }
     }
