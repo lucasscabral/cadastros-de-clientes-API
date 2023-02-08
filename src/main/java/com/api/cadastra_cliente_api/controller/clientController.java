@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -20,11 +21,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.cadastra_cliente_api.dto.clientDTO;
 import com.api.cadastra_cliente_api.model.client;
+import com.api.cadastra_cliente_api.model.clientResponse;
 import com.api.cadastra_cliente_api.service.clientService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -55,11 +58,13 @@ public class clientController {
             @ApiResponse(responseCode = "404", description = "Cliente não encontrado com o CPF passado")
 
     })
+
     public ResponseEntity<Object> getClientByCpf(@PathVariable String cpf) {
         List<client> clientCpf = service.getClientByCpf(cpf);
 
         if (clientCpf.isEmpty()) {
-            return ResponseEntity.status(404).body("Usuário não encontrado com esse CPF");
+
+            return clientResponse.generateResponse("Usuário não encontrado com esse CPF", HttpStatusCode.valueOf(404));
         } else {
             return ResponseEntity.status(200).body(clientCpf);
         }
@@ -74,17 +79,18 @@ public class clientController {
             @ApiResponse(responseCode = "422", description = "Quando passa um CPF inválido")
 
     })
-    public ResponseEntity<String> createCustomer(@RequestBody @Valid clientDTO req) {
+    @ResponseBody
+    public ResponseEntity<Object> createCustomer(@RequestBody @Valid clientDTO req) {
 
         String isValid = service.clientRegister(req);
 
         if (isValid.equals("Já existe um usuário com esse cpf")) {
-            return ResponseEntity.status(401).body(isValid);
+            return clientResponse.generateResponse(isValid, HttpStatusCode.valueOf(401));
         }
         if (isValid != "ok") {
-            return ResponseEntity.status(422).body(isValid);
+            return clientResponse.generateResponse(isValid, HttpStatusCode.valueOf(422));
         } else {
-            return ResponseEntity.status(201).body(isValid);
+            return clientResponse.generateResponse(isValid, HttpStatusCode.valueOf(201));
         }
 
     }
