@@ -9,33 +9,15 @@ Uma aplicação voltada para o cadastro e listagem dos clientes cadastrados.
 **Back-end:** JAVA, Spring Boot
 
 
-## Apêndice
+# Primeiros Passos
 
-# Preparando o VsCode
+Abra esse Link para você poder esta instalando o JAVA em sua máquina, conforme o seu sistema operacional
 
-### Introdução
+[Link de Instalação do JAVA](https://silent-droplet-3f8.notion.site/Instala-o-Java-22861668b34b44da80801257dd734a10)
 
-Sabemos que o VsCode é o queridinho do momento, porém, da forma natural como ele vem depois que instalamos, não é fornecido a melhor maneira de se trabalhar com Java. Porém podemos transformar o nosso amado editor de código em uma poderosa IDE de desenvolvimento Java, simplesmente adicionando algumas extensões. Algumas vão nos ajudar logo no início da aceleração, e outras vão nos ajudar no meio para o fim! É importante que você instale exatamente as seguintes extensões:
+## Preparando o VsCode
 
-1. Conjunto de extensões da própria microsoft para trabalhar com java no vscode
-    
-    [Extension Pack for Java - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
-    
-2. Suporte a linguagem XML
-    
-    [XML - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml)
-    
-3. SonarLint vai corrigir problemas no código antes que eles existam! Como um corretor ortográfico
-    
-    [SonarLint - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
-    
-4. Fornece feedback em tempo real sobre violações de Checkstyle e ações de correção rápida
-    
-    [Checkstyle for Java - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
-    
-5. Conjunto de extensões para trabalhar com o framework SpringBoot
-
-[Spring Boot Extension Pack - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack)
+[Link de Instalação das Extensões para o seu VsCode](https://silent-droplet-3f8.notion.site/Preparando-o-VsCode-282147fd4e784530938da11152a159d4)
 ## Instalação
 
 Instale o projeto simplesmente clonando ele.
@@ -60,7 +42,7 @@ E você habilita conforme no gif abaixo.
 
 Segue o link abaixo.
 
-[Vídeo demonstrativo de como executar o projeto](https://user-images.githubusercontent.com/80989256/217455332-bea4af5f-155a-4c2f-bd4c-a6d2f1f0e771.mp4)
+[Vídeo demonstrativo de como executar o projeto](https://user-images.githubusercontent.com/80989256/217691515-3f1570a5-fd5c-4597-9517-2fa09cdd1131.mp4)
 
 ## Documentação no Swagger-ui
 OBSERVAÇÃO: ANTES DE ABRIR O LINK, O PROJETO DEVE ESTAR EM EXECUÇÃO.
@@ -70,6 +52,8 @@ OBSERVAÇÃO: ANTES DE ABRIR O LINK, O PROJETO DEVE ESTAR EM EXECUÇÃO.
 
 ## Rodando os testes
 
-Para rodar os testes, rode o seguinte comando
+#### Para rodar os testes é bem simples, siga o vídeo demonstrativo abaixo.
 
+Segue o link abaixo:
 
+[Vídeo demonstrativo de como executar os testes](https://user-images.githubusercontent.com/80989256/217690724-c5f41c54-7085-4a3d-b5b5-d5abae0fedaa.mp4)
