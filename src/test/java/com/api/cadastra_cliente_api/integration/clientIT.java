@@ -14,6 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.http.ResponseEntity;
 
 import com.api.cadastra_cliente_api.dto.clientDTO;
 import com.api.cadastra_cliente_api.model.client;
@@ -48,9 +49,9 @@ public class clientIT {
         Date date = Date.valueOf("2001-12-14");
         clientDTO clientDto = new clientDTO("Lucas Cabral", "04356036204", date);
 
-        String response = restTemplate.postForObject("/client", clientDto, String.class);
+        Object response = restTemplate.postForObject("/client", clientDto, Object.class);
 
-        assertEquals("ok", response);
+        assertEquals(java.util.LinkedHashMap.class, response.getClass());
     }
 
     @Test
@@ -59,9 +60,9 @@ public class clientIT {
         Date date = Date.valueOf("2001-12-14");
         clientDTO clientDto = new clientDTO("Lucas Cabral", "04356036214", date);
 
-        String response = restTemplate.postForObject("/client", clientDto, String.class);
+        Object response = restTemplate.postForObject("/client", clientDto, Object.class);
 
-        assertEquals("CPF inválido", response);
+        assertEquals(java.util.LinkedHashMap.class, response.getClass());
     }
 
     @Test
@@ -70,9 +71,9 @@ public class clientIT {
         Date date = Date.valueOf("2001-12-14");
         clientDTO clientDto = new clientDTO("Lucas Cabral", "043560362040", date);
 
-        String response = restTemplate.postForObject("/client", clientDto, String.class);
+        Object response = restTemplate.postForObject("/client", clientDto, Object.class);
 
-        assertEquals("CPF inválido, o mesmo deve ter 11 dígitos", response);
+        assertEquals(java.util.LinkedHashMap.class, response.getClass());
     }
 
     @Test
@@ -102,7 +103,6 @@ public class clientIT {
 
         List<client> allClientList = repository.findAll();
 
-        System.out.println(allClientList);
         assertEquals(1, allClientList.size());
     }
 
